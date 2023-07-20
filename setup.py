@@ -9,9 +9,10 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.1.0',
+    version='0.1.1',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
+    long_description_content_type='text/markdown',
     url='https://github.com/Bryanthelol/namekoplus',
 
     author='Bryant He',
@@ -34,6 +35,7 @@ setup(
 
     packages=find_packages(exclude=['contrib', 'docs', 'tests']),
     include_package_data=True,
+    data_files=['README.md'],
 
     entry_points={
         'console_scripts': [

@@ -1,0 +1,24 @@
+AMQP_URI: pyamqp://${RABBIT_USER:guest}:${RABBIT_PASSWORD:guest}@${RABBIT_HOST:localhost}:${RABBIT_PORT:5672}/
+RPC_EXCHANGE: 'nameko-rpc'
+
+max_workers: 10
+parent_calls_tracked: 20
+
+LOGGING:
+    version: 1
+    formatters:
+        tracer:
+            (): nameko_tracer.formatters.PrettyJSONFormatter
+    handlers:
+        tracer:
+            class: logging.StreamHandler
+            formatter: tracer
+    loggers:
+        nameko_tracer:
+            level: INFO
+            handlers: [tracer]
+
+SENTRY:
+    DSN: ${SENTRY_DSN}
+    CLIENT_CONFIG:
+        site: ${SENTRY_SITE}

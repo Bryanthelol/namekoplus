@@ -5,13 +5,14 @@ from namekoplus import init_statsd, init_sentry
 
 
 class EventPublisherService:
-    name = "publisher_service"
 
-    dispatch = EventDispatcher()
+    name = "publisher_service"
 
     tracer = Tracer()
     sentry = init_sentry()
     statsd = init_statsd('statsd_prefix', 'statsd_host', 'statsd_port')
+
+    dispatch = EventDispatcher()
 
     @rpc
     @statsd.timer('publish')
@@ -20,8 +21,10 @@ class EventPublisherService:
 
 
 class AnEventListenerService:
+
     name = "an_event_listener_service"
 
+    tracer = Tracer()
     sentry = init_sentry()
     statsd = init_statsd('statsd_prefix', 'statsd_host', 'statsd_port')
 
@@ -32,8 +35,10 @@ class AnEventListenerService:
 
 
 class AnotherEventListenerService:
+
     name = "another_event_listener_service"
 
+    tracer = Tracer()
     sentry = init_sentry()
     statsd = init_statsd('statsd_prefix', 'statsd_host', 'statsd_port')
 
@@ -44,8 +49,10 @@ class AnotherEventListenerService:
 
 
 class ListenBothEventsService:
+
     name = "listen_both_events_service"
 
+    tracer = Tracer()
     sentry = init_sentry()
     statsd = init_statsd('statsd_prefix', 'statsd_host', 'statsd_port')
 

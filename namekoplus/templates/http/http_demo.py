@@ -6,6 +6,7 @@ from namekoplus import init_statsd, init_sentry
 
 
 class HttpDemoService:
+
     name = "http_demo_service"
 
     tracer = Tracer()

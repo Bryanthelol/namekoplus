@@ -40,10 +40,10 @@ def cli():
 @click.option('-d', '--directory',
               required=True,
               help='The directory name of nameko services')
-@click.option('-f', '--type', '_type',
-              default='rpc',
+@click.option('-t', '--type', '_type',
+              default='all',
               show_default=True,
-              type=click.Choice(['rpc', 'event', 'http', 'timer'], case_sensitive=False),
+              type=click.Choice(['all', 'rpc', 'event', 'http', 'timer'], case_sensitive=False),
               help='The template type of nameko service')
 def init(directory, _type):
     """

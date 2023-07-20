@@ -3,8 +3,9 @@ from nameko_tracer import Tracer
 from namekoplus import init_statsd, init_sentry
 
 
-class Service:
-    name = "service"
+class Timer:
+
+    name = 'timer'
 
     tracer = Tracer()
     sentry = init_sentry()

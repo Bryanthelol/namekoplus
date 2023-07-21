@@ -68,7 +68,7 @@ def cli():
 @click.option('-t', '--type', '_type',
               default='all',
               show_default=True,
-              type=click.Choice(['all', 'rpc', 'event', 'http', 'timer'], case_sensitive=False),
+              type=click.Choice(['all', 'rpc', 'event', 'http', 'timer', 'demo'], case_sensitive=False),
               help='The template type of nameko service')
 def init(directory, _type):
     """

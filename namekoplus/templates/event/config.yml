@@ -1,4 +1,4 @@
-AMQP_URI: pyamqp://${RABBIT_USER:guest}:${RABBIT_PASSWORD:guest}@${RABBIT_HOST:localhost}:${RABBIT_PORT:5672}/
+AMQP_URI: pyamqp://${RABBIT_USER:admin}:${RABBIT_PASSWORD:admin}@${RABBIT_HOST:localhost}:${RABBIT_PORT:5672}/
 RPC_EXCHANGE: 'nameko-rpc'
 
 max_workers: 10

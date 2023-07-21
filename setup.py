@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.2.1',
+    version='0.2.2',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -33,7 +33,7 @@ setup(
         'Topic :: Software Development :: Libraries :: Python Modules',
     ],
     platforms='any',
-    python_requires='>=3',
+    python_requires='>=3.8, <4',
 
     keywords='lightweight python distributed microservice solution',
 

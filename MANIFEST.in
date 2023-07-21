@@ -1,3 +1,4 @@
 include *.py *.md
 recursive-include namekoplus/chassis *.py
 recursive-include namekoplus/templates *.py *.yml
+recursive-include namekoplus/chassis-agent *.py *.yml

@@ -9,12 +9,16 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.1.2',
+    version='0.2.0',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/Bryanthelol/namekoplus',
-
+    url='',
+    project_urls={
+        'Documentation': 'https://doc.bearcatlog.com/',
+        'Source Code': 'https://github.com/Bryanthelol/namekoplus',
+        'Bug Tracker': 'https://github.com/Bryanthelol/namekoplus/issues',
+    },
     author='Bryant He',
     author_email='bryantsisu@qq.com',
 
@@ -45,20 +49,19 @@ setup(
 
     install_requires=[
         'nameko==3.0.0rc11',
-        'nameko-sentry==1.0.0',
-        'nameko-tracer==1.4.0',
         'click==8.1.5',
-        'pytest==7.4.0',
-        'environs==9.5.0',
-        'logstash_formatter==0.5.17',
-        'statsd==4.0.1',
-        'tenacity==8.2.2',
-        'cachetools==5.3.0',
-        'circuitbreaker==2.0.0',
-        'shortuuid==1.0.11',
-        'cryptography'
+        'python-on-whales==0.62.0',
+        'pytest==7.4.0'
     ],
     extras_require={
+        'ha': ['tenacity==8.2.2',
+               'cachetools==5.3.0',
+               'circuitbreaker==2.0.0',
+               'statsd==4.0.1',
+               'logstash_formatter==0.5.17',
+               'nameko-sentry==1.0.0',
+               'nameko-tracer==1.4.0',
+               'shortuuid==1.0.11'],
         'apiflask': ['apiflask>=1.3.1',
                      'gevent>=22.10.2',
                      'gunicorn==20.1.0'],
@@ -68,6 +71,8 @@ setup(
                   'sqlalchemy==2.0.15',
                   'sqlacodegen==2.3.0',
                   'alembic==1.11.1'],
-        'dev': ['mako==1.2.4'],
+        'ssl': ['cryptography'],
+        'dev': ['mako==1.2.4',
+                'environs==9.5.0']
     },
 )

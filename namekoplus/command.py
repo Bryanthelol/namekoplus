@@ -3,6 +3,22 @@ import shutil
 from contextlib import contextmanager
 
 import click
+from python_on_whales import DockerException, ClientNotFoundError, DockerClient, docker as docker_testing
+
+
+def check_docker():
+    try:
+        docker_testing.ps()
+    except ClientNotFoundError:
+        click.echo('Please install docker first', err=True)
+        raise
+    except DockerException:
+        click.echo('Please start docker correctly', err=True)
+        raise
+
+    if not docker_testing.compose.is_installed():
+        click.echo('Please install docker-compose first', err=True)
+        raise
 
 
 @contextmanager
@@ -21,14 +37,23 @@ def status(status_msg: str, newline: bool = False, quiet: bool = False):
 
 
 def get_template_directory() -> str:
-    """Return the directory where nameko_plus setup templates are found.
-
-    This method is used by the nameko_plus ``init`` commands.
+    """
+    Return the directory where nameko_plus setup templates are found.
     """
     import namekoplus
 
     package_dir = os.path.abspath(os.path.dirname(namekoplus.__file__))
     return os.path.join(package_dir, 'templates')
+
+
+def get_agent_directory() -> str:
+    """
+    Return the directory where nameko_plus setup agent are found.
+    """
+    import namekoplus
+
+    package_dir = os.path.abspath(os.path.dirname(namekoplus.__file__))
+    return os.path.join(package_dir, 'chassis-agent')
 
 
 @click.group()
@@ -74,11 +99,51 @@ def init(directory, _type):
 
 
 @cli.command()
-def start():
+@click.option('-m', '--middleware',
+              required=True,
+              type=click.Choice(['rabbitmq'], case_sensitive=False),
+              help='The middleware name')
+@click.option('-u', '--user',
+              required=False,
+              help='The user name of the middleware')
+@click.option('-p', '--password',
+              required=False,
+              help='The password of the middleware')
+def start(middleware, user, password):
     """
-    Start a middleware, such as RabbitMQ.
+    Start a middleware that the nameko service depends on.
     """
-    click.echo('Initialized the database')
+    check_docker()
+
+    if user and password:
+        os.environ['RABBITMQ_DEFAULT_USER'] = user
+        os.environ['RABBITMQ_DEFAULT_PASS'] = password
+
+    docker_compose_file_dir = os.path.join(get_agent_directory(), middleware)
+    for file_ in os.listdir(docker_compose_file_dir):
+        compose_file_path = os.path.join(docker_compose_file_dir, file_)
+        with status(f'Starting {middleware}'):
+            docker = DockerClient(compose_files=[compose_file_path])
+            docker.compose.up(detach=True)
+
+
+@cli.command()
+@click.option('-m', '--middleware',
+              required=True,
+              type=click.Choice(['rabbitmq'], case_sensitive=False),
+              help='The middleware name')
+def stop(middleware):
+    """
+    Stop a middleware that the nameko service depends on.
+    """
+    check_docker()
+
+    docker_compose_file_dir = os.path.join(get_agent_directory(), middleware)
+    for file_ in os.listdir(docker_compose_file_dir):
+        compose_file_path = os.path.join(docker_compose_file_dir, file_)
+        with status(f'Stoping {middleware}'):
+            docker = DockerClient(compose_files=[compose_file_path])
+            docker.compose.down()
 
 
 if __name__ == '__main__':

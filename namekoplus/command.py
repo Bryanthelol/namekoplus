@@ -141,7 +141,7 @@ def stop(middleware):
     docker_compose_file_dir = os.path.join(get_agent_directory(), middleware)
     for file_ in os.listdir(docker_compose_file_dir):
         compose_file_path = os.path.join(docker_compose_file_dir, file_)
-        with status(f'Stoping {middleware}'):
+        with status(f'Stopping {middleware}'):
             docker = DockerClient(compose_files=[compose_file_path])
             docker.compose.down()
 

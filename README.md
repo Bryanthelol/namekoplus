@@ -28,4 +28,4 @@ namekoplus init --directory <dir_name> --type <template_type>
 See Documents: 
 
 - [中文](https://doc.bearcatlog.com/)
-- [English]()
+- [English](https://legendary-sopapillas-e2626d.netlify.app/)

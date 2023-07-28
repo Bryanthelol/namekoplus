@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.3.2',
+    version='0.4.0',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -51,7 +51,9 @@ setup(
         'nameko==3.0.0rc11',
         'click==8.1.5',
         'python-on-whales==0.63.0',
-        'pytest==7.4.0'
+        'pytest==7.4.0',
+        'mako==1.2.4',
+        'shortuuid==1.0.11'
     ],
     extras_require={
         'ha': ['tenacity==8.2.2',
@@ -60,8 +62,7 @@ setup(
                'statsd==4.0.1',
                'logstash_formatter==0.5.17',
                'nameko-sentry==1.0.0',
-               'nameko-tracer==1.4.0',
-               'shortuuid==1.0.11'],
+               'nameko-tracer==1.4.0'],
         'apiflask': ['apiflask>=1.3.1',
                      'gevent>=22.10.2',
                      'gunicorn==20.1.0'],
@@ -72,7 +73,6 @@ setup(
                   'sqlacodegen==2.3.0',
                   'alembic==1.11.1'],
         'security': ['cryptography'],
-        'dev': ['mako==1.2.4',
-                'environs==9.5.0']
+        'dev': ['environs==9.5.0']
     },
 )

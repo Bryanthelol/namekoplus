@@ -1,5 +1,5 @@
-include *.py *.md *.mako
-recursive-include namekoplus/chassis *.py *.mako
-recursive-include namekoplus/templates *.py *.yml *.mako
-recursive-include namekoplus/chassis-agent *.py *.yml *.mako
-recursive-include namekoplus/tests *.py *.mako
+include *.py *.md *.mako *.js *.yml *.yaml *.ini
+recursive-include namekoplus/chassis *.py *.mako *.js *.yaml *.ini
+recursive-include namekoplus/templates *.py *.yml *.yaml *.mako *.js *.ini
+recursive-include namekoplus/chassis-agent *.py *.yml *.yaml *.mako *.js *.ini
+recursive-include namekoplus/tests *.py *.mako *.js *.yaml *.ini

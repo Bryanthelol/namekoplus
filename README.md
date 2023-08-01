@@ -1,5 +1,7 @@
 # namekoplus
 
+[![Upload Python Package](https://github.com/Bryanthelol/namekoplus/actions/workflows/python-publish.yml/badge.svg?event=release)](https://github.com/Bryanthelol/namekoplus/actions/workflows/python-publish.yml)
+
 A lightweight Python distributed microservice solution
 
 ## CLI Usage

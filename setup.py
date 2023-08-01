@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.4.4',
+    version='0.4.5',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -50,7 +50,7 @@ setup(
     install_requires=[
         'nameko==3.0.0rc11',
         'click==8.1.5',
-        'python-on-whales==0.63.0',
+        'python-on-whales==0.64.0',
         'pytest==7.4.0',
         'mako==1.2.4',
         'shortuuid==1.0.11'

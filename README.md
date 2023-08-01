@@ -23,7 +23,7 @@ namekoplus init --directory <dir_name> --type <template_type>
 ```
 
 
-## `Detailed` Usage
+## Detailed Usage
 
 See Documents: 
 

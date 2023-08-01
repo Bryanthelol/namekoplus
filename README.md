@@ -2,7 +2,7 @@
 
 A lightweight Python distributed microservice solution
 
-## Command Line Tool Usage
+## CLI Usage
 
 ### Checkout Command
 
@@ -23,9 +23,9 @@ namekoplus init --directory <dir_name> --type <template_type>
 ```
 
 
-## Detailed Usage
+## `Detailed` Usage
 
 See Documents: 
 
-- [中文](https://doc.bearcatlog.com/)
 - [English](https://legendary-sopapillas-e2626d.netlify.app/)
+- [中文](https://doc.bearcatlog.com/)

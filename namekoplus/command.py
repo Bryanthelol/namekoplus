@@ -1,4 +1,3 @@
-import importlib
 import inspect
 import os
 import shutil
@@ -9,7 +8,6 @@ import click
 import shortuuid
 from python_on_whales import DockerException, ClientNotFoundError, DockerClient, docker
 from mako.template import Template
-
 
 INIT_TYPE_CHOICES = ['all', 'rpc', 'event', 'http', 'timer', 'demo']
 MIDDLEWARE_CHOICES = ['rabbitmq', 'metrics']
@@ -159,6 +157,7 @@ def stop_network(network_name):
 
 
 def start_metric_servers():
+    # TODO 检查相应容器是否已启动，如果启动，则先删除
     start_network('metric_servers')
     sleep(0.5)
     start_prometheus()
@@ -324,10 +323,9 @@ def metric_config_gen(module, class_name_str):
     """
     import sys
     from statsd.client.timer import Timer
-    sys.path.append(os.getcwd()) 
+    sys.path.append(os.getcwd())
 
     # Extract information of statsd config from the class of nameko service
-    dest_dir = module.split('.')[0]
     file_name = module.split('.')[-1]
     _module = __import__(module)
 

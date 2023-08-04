@@ -9,7 +9,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.4.6',
+    version='0.4.7',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -63,15 +63,6 @@ setup(
         'ob': ['statsd==4.0.1',
                'nameko-sentry==1.0.0',
                'nameko-tracer==1.4.0'],
-        'apiflask': ['apiflask>=1.3.1',
-                     'gevent>=22.10.2',
-                     'gunicorn==20.1.0'],
-        'rocketry': ['rocketry==2.4.0'],
-        'gutter': ['gutter==0.5.0'],
-        'mysql': ['pymysql==1.0.3',
-                  'sqlalchemy==2.0.15',
-                  'sqlacodegen==2.3.0',
-                  'alembic==1.11.1'],
         'security': ['cryptography'],
         'dev': ['environs==9.5.0']
     },

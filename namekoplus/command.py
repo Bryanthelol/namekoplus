@@ -109,7 +109,7 @@ def start_statsd_agent():
 
 def start_statsd_exporter():
     with status(f'Starting statsd exporter'):
-        statsd_mapping_file_path = os.path.join(os.getcwd(), 'statsd_mapping.yml')
+        statsd_mapping_file_path = os.getcwd() + '/statsd_mapping.yml'
         returned_string = docker.run(image='prom/statsd-exporter:latest', name='statsd-exporter', pull='missing',
                                      detach=True, restart='always', tty=True, hostname='statsd-exporter',
                                      publish=[(9125, 9125, 'udp'), (9102, 9102)], interactive=True,
@@ -136,7 +136,7 @@ def start_grafana():
         grafana_conf_dir = os.path.join(get_directory('chassis-agent'), 'metric-configs')
         grafana_provisioning_path = os.path.join(grafana_conf_dir, 'grafana_conf/provisioning')
         grafana_config_path = os.path.join(grafana_conf_dir, 'grafana_conf/config/grafana.ini')
-        grafana_dashboard_path = os.path.join(os.getcwd(), 'grafana_dashboards')
+        grafana_dashboard_path = os.getcwd() + 'grafana_dashboards'
         returned_string = docker.run(image='grafana/grafana:latest', name='grafana', hostname='grafana',
                                      detach=True, restart='always', tty=True, interactive=True,
                                      publish=[(3100, 3000)], pull='missing',

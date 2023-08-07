@@ -364,13 +364,14 @@ def metric_config_gen(module, class_name_str):
     with status(f'Creating files of Grafana.json into the directory of grafana_dashboards'):
         for class_name in class_name_str.split(','):
             grafana_list = []
-            for idx, config in enumerate(config_list):
+            for config in config_list:
                 if config['class_name'] == class_name:
-                    if idx+1 == len(config_list):
-                        config['is_last'] = True
-                    else:
-                        config['is_last'] = False
                     grafana_list.append(config)
+            for idx, grafana_dict in enumerate(grafana_list):
+                if idx + 1 == len(grafana_list):
+                    grafana_dict['is_last'] = True
+                else:
+                    grafana_dict['is_last'] = False
             grafana_configs_dir = os.path.join(get_directory('chassis-agent'), 'metric-configs')
             grafana_file_path = os.path.join(grafana_configs_dir, 'grafana.json.mako')
             output_file = os.path.join('grafana_dashboards', f'{class_name}_Grafana.json')

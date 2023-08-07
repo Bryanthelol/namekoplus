@@ -136,7 +136,7 @@ def start_grafana():
         grafana_conf_dir = os.path.join(get_directory('chassis-agent'), 'metric-configs')
         grafana_provisioning_path = os.path.join(grafana_conf_dir, 'grafana_conf/provisioning')
         grafana_config_path = os.path.join(grafana_conf_dir, 'grafana_conf/config/grafana.ini')
-        grafana_dashboard_path = os.path.join('.', 'grafana_dashboards')
+        grafana_dashboard_path = os.path.join(os.getcwd(), 'grafana_dashboards')
         returned_string = docker.run(image='grafana/grafana:latest', name='grafana', hostname='grafana',
                                      detach=True, restart='always', tty=True, interactive=True,
                                      publish=[(3100, 3000)], pull='missing',

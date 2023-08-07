@@ -367,11 +367,6 @@ def metric_config_gen(module, class_name_str):
             for config in config_list:
                 if config['class_name'] == class_name:
                     grafana_list.append(config)
-            for idx, grafana_dict in enumerate(grafana_list):
-                if idx + 1 == len(grafana_list):
-                    grafana_dict['is_last'] = '1'
-                else:
-                    grafana_dict['is_last'] = '0'
             grafana_configs_dir = os.path.join(get_directory('chassis-agent'), 'metric-configs')
             grafana_file_path = os.path.join(grafana_configs_dir, 'grafana.json.mako')
             output_file = os.path.join('grafana_dashboards', f'{class_name}_Grafana.json')

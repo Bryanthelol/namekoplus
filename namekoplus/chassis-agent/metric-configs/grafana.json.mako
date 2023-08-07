@@ -28,7 +28,7 @@
   "links": [],
   "liveNow": false,
   "panels": [
-%for grafana_dict in grafana_list:
+  % for grafana_dict in grafana_list:
     {
       "aliasColors": {},
       "bars": false,
@@ -115,12 +115,8 @@
       "yaxis": {
         "align": false
       }
-  %if ${grafana_dict['is_last']} == '1':
-    }
-  %else:
     },
-  %endif
-%endfor
+  % endfor
   ],
   "refresh": "3s",
   "schemaVersion": 36,

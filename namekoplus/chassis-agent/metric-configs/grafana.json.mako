@@ -117,9 +117,9 @@
       }
 
   % if grafana_dict['is_last'] == 1:
-    },
-  % else:
     }
+  % else:
+    },
   % endif
 % endfor
   ],

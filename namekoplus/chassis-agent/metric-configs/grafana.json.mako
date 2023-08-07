@@ -28,14 +28,14 @@
   "links": [],
   "liveNow": false,
   "panels": [
-  % for grafana_dict in grafana_list:
+% for grafana_dict in grafana_list:
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
       "datasource": {
-        "type": "statsd",
+        "type": "statsd"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -115,8 +115,13 @@
       "yaxis": {
         "align": false
       }
+
+  % if grafana_dict['is_last'] == 1:
     },
-  % endfor
+  % else:
+    }
+  % endif
+% endfor
   ],
   "refresh": "3s",
   "schemaVersion": 36,

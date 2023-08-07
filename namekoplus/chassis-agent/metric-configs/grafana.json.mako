@@ -115,7 +115,7 @@
       "yaxis": {
         "align": false
       }
-  %if ${grafana_dict['is_last']}:
+  %if ${grafana_dict['is_last']} == '1':
     }
   %else:
     },

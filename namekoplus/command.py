@@ -109,7 +109,7 @@ def start_statsd_agent():
 
 def start_statsd_exporter():
     with status(f'Starting statsd exporter'):
-        statsd_mapping_file_path = os.path.join('.', 'statsd_mapping.yml')
+        statsd_mapping_file_path = os.path.join(os.getcwd(), 'statsd_mapping.yml')
         returned_string = docker.run(image='prom/statsd-exporter:latest', name='statsd-exporter', pull='missing',
                                      detach=True, restart='always', tty=True, hostname='statsd-exporter',
                                      publish=[(9125, 9125, 'udp'), (9102, 9102)], interactive=True,

@@ -27,9 +27,10 @@ def check_docker():
         click.echo('Please start docker correctly', err=True)
         raise
 
-    if not docker.compose.is_installed():
-        click.echo('Please install docker-compose first', err=True)
-        raise
+    # TODO 目前在某些系统环境的检查不准确，暂时去除这个检查逻辑
+    # if not docker.compose.is_installed():
+    #     click.echo('Please install docker-compose first', err=True)
+    #     raise
 
 
 @contextmanager

@@ -324,6 +324,9 @@ def metric_config_gen(module, class_name_str):
     import sys
     from statsd.client.timer import Timer
     sys.path.append(os.getcwd())
+    for root, dirs, files in os.walk(os.getcwd()):
+        for _dir in dirs:
+            sys.path.append(os.path.join(root, _dir))
 
     # Extract information of statsd config from the class of nameko service
     file_name = module.split('.')[-1]

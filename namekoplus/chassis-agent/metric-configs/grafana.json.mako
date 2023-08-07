@@ -115,7 +115,7 @@
       "yaxis": {
         "align": false
       }
-        % if ${loop.index} == len(grafana_list):
+        % if ${grafana_dict['is_last']}:
     }
         % else:
     },

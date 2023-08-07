@@ -115,7 +115,7 @@
       "yaxis": {
         "align": false
       }
-        if ${loop.index} == len(grafana_list):
+        % if ${loop.index} == len(grafana_list):
     }
         % else:
     },

@@ -116,7 +116,7 @@
       "yaxis": {
         "align": false
       }
-    }
+    },
     % endfor
   ],
   "refresh": "3s",

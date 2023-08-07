@@ -36,7 +36,6 @@
       "dashes": false,
       "datasource": {
         "type": "statsd",
-        "uid": "5qrwjFCnk"
       },
       "fill": 1,
       "fillGradient": 0,
@@ -47,7 +46,7 @@
         "y": 0
       },
       "hiddenSeries": false,
-      "id": 5,
+      "id": ${loop.index},
       "legend": {
         "alignAsTable": true,
         "avg": true,
@@ -92,7 +91,7 @@
       "title": "${service_name} | ${grafana_dict['stat_name']}",
       "tooltip": {
         "shared": true,
-        "sort": 0,
+        "sort": ${loop.index},
         "value_type": "individual"
       },
       "type": "graph",
@@ -116,7 +115,11 @@
       "yaxis": {
         "align": false
       }
+        if ${loop.index} == len(grafana_list):
+    }
+        % else:
     },
+        % endif
     % endfor
   ],
   "refresh": "3s",

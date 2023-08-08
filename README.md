@@ -4,6 +4,13 @@
 
 A lightweight Python distributed microservice solution
 
+## Installation
+
+```shell
+python3 -m pip install namekoplus
+```
+
+
 ## CLI Usage
 
 ### Checkout Command

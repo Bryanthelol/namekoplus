@@ -36,5 +36,5 @@ namekoplus init --directory <dir_name> --type <template_type>
 
 See Documents: 
 
-- [English](https://murl.vip/TwML)
-- [中文](https://murl.vip/B0O9)
+- [English](https://legendary-sopapillas-e2626d.netlify.app/)
+- [中文](https://doc.bearcatlog.com/)

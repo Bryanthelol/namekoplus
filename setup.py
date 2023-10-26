@@ -9,13 +9,12 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='namekoplus',
-    version='0.4.26',
+    version='0.4.27',
     description='A lightweight Python distributed microservice solution',
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='',
     project_urls={
-        'Documentation': 'https://doc.bearcatlog.com/',
         'Source Code': 'https://github.com/Bryanthelol/namekoplus',
         'Bug Tracker': 'https://github.com/Bryanthelol/namekoplus/issues',
     },
@@ -50,7 +49,7 @@ setup(
     install_requires=[
         'nameko==3.0.0rc11',
         'click==8.1.5',
-        'python-on-whales==0.64.0',
+        'python-on-whales==0.65.0',
         'pytest==7.4.0',
         'mako==1.2.4',
         'shortuuid==1.0.11'
@@ -58,13 +57,15 @@ setup(
     extras_require={
         'ha': ['tenacity==8.2.2',
                'cachetools==5.3.0',
-               'circuitbreaker==2.0.0',
-               'logstash_formatter==0.5.17'],
-        'ob': ['statsd==4.0.1',
-               'nameko-sentry==1.0.0',
+               'circuitbreaker==2.0.0'],
+        'ob': ['nameko-sentry==1.0.0',
                'nameko-tracer==1.4.0'],
+        'log': ['loguru==0.7.2',
+                'logstash_formatter==0.5.17'],
+        'metric': ['statsd==4.0.1'],
         'schema': ['marshmallow==3.20.1'],
         'security': ['cryptography'],
-        'dev': ['environs==9.5.0']
+        'dev': ['python-dotenv==1.0.0',
+                'environs==9.5.0']
     },
 )

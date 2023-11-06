@@ -1,7 +1,7 @@
 
 [project]
 name = "namekoplus"
-version = "0.5.2"
+version = "0.5.3"
 description = "A lightweight Python distributed microservice solution"
 keywords = ["lightweight python distributed microservice solution"]
 readme = "README.md"
@@ -27,11 +27,8 @@ dependencies = [
 ]
 license = {text = "MIT"}
 
-[pypi]
-url = "https://upload.pypi.org/legacy/"
-
 [project.urls]
-Homepage = ""
+"Homepage" = "https://github.com/Bryanthelol/namekoplus"
 "Source Code" = "https://github.com/Bryanthelol/namekoplus"
 "Bug Tracker" = "https://github.com/Bryanthelol/namekoplus/issues"
 

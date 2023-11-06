@@ -1,7 +1,7 @@
 
 [project]
 name = "namekoplus"
-version = "0.5.0"
+version = "0.5.1"
 description = "A lightweight Python distributed microservice solution"
 keywords = ["lightweight python distributed microservice solution"]
 readme = "README.md"

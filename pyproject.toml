@@ -27,6 +27,9 @@ dependencies = [
 ]
 license = {text = "MIT"}
 
+[pypi.url]
+url = "https://upload.pypi.org/legacy/"
+
 [project.urls]
 Homepage = ""
 "Source Code" = "https://github.com/Bryanthelol/namekoplus"
